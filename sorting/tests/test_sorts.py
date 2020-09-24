@@ -2,11 +2,13 @@ import pytest
 
 from sorting.bubble_sort import BubbleSort
 from sorting.merge_sort import MergeSort
+from sorting.quick_sort import QuickSort
 from sorting.selection_sort import SelectionSort
 
 sorters = [BubbleSort(),
            SelectionSort(),
-           MergeSort()]
+           MergeSort(),
+           QuickSort()]
 
 
 @pytest.mark.parametrize('sorter', sorters)
@@ -34,3 +36,12 @@ def test_sort(sorter):
     sorter.sort(list_to_sort)
 
     assert list_to_sort == [-321, 0, 1, 2, 32, 32, 231]
+
+
+@pytest.mark.parametrize('sorter', sorters)
+def test_sort_2(sorter):
+    list_to_sort = [8, 2, 32, -321, 32, 0, 231, 3]
+
+    sorter.sort(list_to_sort)
+
+    assert list_to_sort == [-321, 0, 2, 3, 8, 32, 32, 231]
