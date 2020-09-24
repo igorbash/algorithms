@@ -1,11 +1,12 @@
 import pytest
 
 from sorting.bubble_sort import BubbleSort
+from sorting.merge_sort import MergeSort
 from sorting.selection_sort import SelectionSort
 
 sorters = [BubbleSort(),
            SelectionSort(),
-           ]
+           MergeSort()]
 
 
 @pytest.mark.parametrize('sorter', sorters)
